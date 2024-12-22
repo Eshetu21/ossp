@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hate Speech Detector
 
-## Getting Started
+The Hate Speech Detector is a web app that identifies and classifies text as toxic or non-toxic. The application includes a preprocessing pipeline, a machine learning model, a FastAPI backend, and a Next.js frontend.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Preprocessing of raw datasets to clean and prepare the data.
+- Machine learning pipeline using scikit-learn for text classification.
+- REST API built with FastAPI to serve predictions.
+- Frontend interface using Next.js.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Prerequisites
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Ensure you have the following installed:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [Python 3.8+](https://www.python.org/downloads/)
+- [Node.js 16+](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
 
-## Learn More
+## Setup
 
-To learn more about Next.js, take a look at the following resources:
+### 1. Backend Setup (FastAPI)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Eshetu21/ossp.git
+   cd ossp/py
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. Create a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+   ```
 
-## Deploy on Vercel
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Prepare the dataset:
+   - Place the raw dataset file as `raw_dataset.csv` in the `data` folder.
+   - Run the data preprocessing script:
+     ```bash
+     python preprocess_data.py
+     ```
+   - This will generate `cleaned_dataset.csv`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+5. Train the model:
+   ```bash
+   python train_model.py
+   ```
+   - This will generate the model file `hatespeech_model.pkl`.
+
+6. Start the FastAPI server:
+   ```bash
+   uvicorn app:app --reload --port 8000
+   ```
+   - The API will be available at `http://localhost:8000`.
+
+### 2. Frontend Setup (Next.js)
+
+1. Navigate to the frontend directory:
+   ```bash
+   cd ossp/next
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+   - The application will be available at `http://localhost:3000`.
+
+## API Endpoints
+
+### `/predict` (POST)
+
+- **Description:** Predicts whether a given comment is toxic or non-toxic.
+- **Request Body:**
+  ```json
+  {
+    "comment_text": "Your input comment here"
+  }
+  ```
+- **Response:**
+  ```json
+  {
+    "result": "toxic" | "non-toxic"
+  }
+  ```
+  
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
