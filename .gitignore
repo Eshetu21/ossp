@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/data
+/py/cleaned_dataset.csv
+/py/hatespeech_model.pkl
+py/__pycache__
+
