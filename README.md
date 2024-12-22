@@ -90,7 +90,7 @@ Ensure you have the following installed:
 - **Response:**
   ```json
   {
-    "result": "toxic" | "non-toxic"
+    "result": "non-toxic" | "toxic"
   }
   ```
   
