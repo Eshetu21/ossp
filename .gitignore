@@ -40,7 +40,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-/py/cleaned_dataset.csv
+/data/
+/py/test_data.csv
+/py/train_data.csv
 /py/hatespeech_model.pkl
 py/__pycache__
 

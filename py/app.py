@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+import joblib
+import pandas as pd
 
 app = FastAPI()
 
@@ -12,13 +14,27 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+model = joblib.load("hatespeech_model.pkl")
+
+
 class PredictRequest(BaseModel):
     comment_text: str
+
+def clean_text(text):
+    if isinstance(text, str):
+        text = text.lower()
+        text = text.replace("\n", " ")
+        return text
+    return ""
 
 @app.post("/predict")
 def predict(request: PredictRequest):
     print("Received Comment:", request.comment_text)
-    if "toxic" in request.comment_text.lower():
-        return {"result": "toxic"}
-    return {"result": "non-toxic"}
-
+    
+    cleaned_text = clean_text(request.comment_text)
+    
+    prediction = model.predict([cleaned_text])
+    
+    result = "toxic" if prediction[0] == 1 else "non-toxic"
+    return {"result": result}
