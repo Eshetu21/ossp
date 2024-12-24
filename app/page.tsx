@@ -39,7 +39,7 @@ export default function HateSpeechDetector() {
           Not anymore! Introducing a fast, free, and open-source hate speech
           detection web app.
         </p>
-        <ul className="space-y-3">
+        <ul className="space-y-4">
           <li className="flex items-center">
             <FontAwesomeIcon
               icon={faCheckCircle}
