@@ -2,6 +2,15 @@
 
 The Hate Speech Detector is an open source web app that identifies and classifies text as toxic or non-toxic. The application includes a preprocessing pipeline, a machine learning model, a FastAPI backend, and a Next.js frontend.
 
+## Table of Contents
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Setup](#setup)
+- [Backend Setup (FastAPI)](#1-backend-setup-fastapi)
+- [Frontend Setup (Next.js)](#2-frontend-setup-nextjs)
+- [API Endpoints](#api-endpoints)
+- [License](#license)
+
 ## Features
 
 - Preprocessing of raw datasets to clean and prepare the data.
