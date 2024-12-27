@@ -9,6 +9,7 @@ The Hate Speech Detector is an open source web app that identifies and classifie
 - [Backend Setup (FastAPI)](#1-backend-setup-fastapi)
 - [Frontend Setup (Next.js)](#2-frontend-setup-nextjs)
 - [API Endpoints](#api-endpoints)
+- [Dataset](#dataset)
 - [License](#license)
 
 ## Features
