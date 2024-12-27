@@ -102,7 +102,11 @@ Ensure you have the following installed:
     "result": "non-toxic || toxic"
   }
   ```
-  
+## Dataset
+
+The raw dataset used for this project is available for download:
+- [Download Raw Dataset](https://drive.google.com/file/d/18nMJ6sbiyiI4T-MwmopysF4QoWzMU-Kp/view?usp=drive_link)
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
