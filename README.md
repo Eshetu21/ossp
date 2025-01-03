@@ -107,6 +107,10 @@ Ensure you have the following installed:
 
 The raw dataset used for this project is available for download:
 - [Download Raw Dataset](https://drive.google.com/file/d/18nMJ6sbiyiI4T-MwmopysF4QoWzMU-Kp/view?usp=drive_link)
+  
+## Contribution
+We welcome contributions from the community! Please read the [Contribution Guidelines](./CONTRIBUTING.md) for detailed instructions on how to contribute to this project.
+
 
 ## License
 
