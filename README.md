@@ -49,7 +49,7 @@ Ensure you have the following installed:
    ```
 
 4. Prepare the dataset:
-   - Place the raw dataset file as `raw_dataset.csv` in the `data` folder.
+   - Place the raw dataset file as `raw_dataset.csv` by creating a `data` folder.
    - Run the data preprocessing script:
      ```bash
      python preprocess_data.py
